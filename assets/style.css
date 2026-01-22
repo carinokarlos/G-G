@@ -1,0 +1,108 @@
+/* --- 1. GLOBAL TYPOGRAPHY & THEME --- */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;700&display=swap');
+
+/* Main Background Fix */
+.stApp {
+    background-color: #0b0c10; /* Deepest Charcoal */
+}
+
+h1, h2, h3 {
+    font-family: 'Rajdhani', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* --- 2. THE GLOWING TIMER CARD --- */
+.timer-card {
+    background: rgba(30, 30, 40, 0.6);
+    backdrop-filter: blur(10px); /* Glass effect */
+    border: 1px solid rgba(255, 75, 75, 0.2);
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
+}
+
+.timer-display {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 9rem;
+    font-weight: 900;
+    color: #ffffff;
+    line-height: 1;
+    /* Red Neon Glow */
+    text-shadow: 
+        0 0 10px rgba(255, 75, 75, 0.8),
+        0 0 20px rgba(255, 75, 75, 0.5),
+        0 0 40px rgba(255, 75, 75, 0.3);
+}
+
+.rest-display {
+    color: #66ff99; /* Neon Green */
+    text-shadow: 
+        0 0 10px rgba(102, 255, 153, 0.8),
+        0 0 20px rgba(102, 255, 153, 0.5);
+}
+
+/* --- 3. CUSTOM NAVIGATION BAR (The Mobile Menu) --- */
+/* This targets the Streamlit Radio widget to make it look like tabs */
+div[data-testid="stRadio"] > div {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    background: #151515;
+    padding: 10px;
+    border-radius: 15px;
+    border: 1px solid #333;
+}
+
+div[data-testid="stRadio"] label {
+    background-color: transparent;
+    border: 1px solid #444;
+    border-radius: 8px;
+    padding: 10px 20px;
+    text-align: center;
+    transition: all 0.3s;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    cursor: pointer;
+    flex-grow: 1;
+}
+
+/* Style for the selected tab */
+div[data-testid="stRadio"] label[data-checked="true"] {
+    background-color: #ff4b4b !important;
+    color: white !important;
+    border-color: #ff4b4b !important;
+    box-shadow: 0 0 15px rgba(255, 75, 75, 0.4);
+}
+
+/* --- 4. BUTTONS --- */
+.stButton > button {
+    background: linear-gradient(180deg, #ff4b4b 0%, #cc0000 100%);
+    color: white;
+    border: none;
+    height: 70px !important;
+    border-radius: 12px !important;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 800;
+    font-size: 24px !important;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 15px rgba(255, 75, 75, 0.3);
+    transition: transform 0.1s;
+}
+
+.stButton > button:active {
+    transform: scale(0.98);
+}
+
+/* --- 5. MOBILE ADJUSTMENTS --- */
+@media only screen and (max-width: 600px) {
+    .timer-display { font-size: 5.5rem; }
+    .stButton > button { height: 80px !important; }
+    
+    /* Hide the top padding on mobile so it looks like an app */
+    .block-container { padding-top: 1rem; }
+}
